@@ -8,6 +8,7 @@ int nthFib(int n)
 	int val = 0;
 	int first = 0; int second = 1;
 	int i = 0;
+	/* Function only allows between 1 and 30 for input. */
 	if(n < 1 || n > 30){return -1;}
 	for(i; i <= n; i++){
 		if(i <= 1){
