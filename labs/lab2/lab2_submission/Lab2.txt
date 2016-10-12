@@ -1,0 +1,25 @@
+##Lab2.txt##
+
+1. For Loop iterations per second --> 488,400,488
+   While Loop iterations per second--> 487,210,718
+   Do While Loop iterations per second --> 500,625,782
+
+2. For Loop average time over three trials --> 2.0475
+   While Loop average time over three trials --> 2.0525
+   Do While Loop average time over three trials --> 1.9975
+
+3. For Loop # of instructions --> 11
+   While Loop # of instructions --> 9
+   Do While Loop # of instructions --> 8
+
+
+4. Although all three  loops were fast, the reason do while performed slighty better was likely because
+   it has one conditional branch at the end of the loop. The for and while loops have two branches being 
+   checked at the beginning and end. 
+
+5. Dependencies
+
+   linux-vdso.so.1 =>  (0x00007ffe8f3ad000)
+   libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f777cb02000)
+   /lib64/ld-linux-x86-64.so.2 (0x00007f777ce8f000)
+

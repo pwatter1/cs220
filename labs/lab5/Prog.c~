@@ -1,0 +1,42 @@
+/* Prog.c */
+#include <stdio.h>
+#include <stdlib.h>
+#include <stddef.h>
+
+void bad(int dummy)
+{
+	/* calculate offset in main and reassign ptr of new str */
+	// run program p/x *(int *) ($rbp -0x20)
+	// x/s value of above	
+	/*
+	typedef struct stud{
+		char *name;
+		int age;
+	} stud;
+	*/
+	
+	
+	char *name_ptr = malloc(dummy);
+	name_ptr = (char *) &dummy + 0x24;
+	*name_ptr = (char* )"Quick brown fox jumped over the lazy dog";
+	//printf("Address of   dummy %p\n", &dummy);	
+	//printf("Address of  offset %p\n", name_ptr);
+	int * age_ptr = malloc(dummy);
+	age_ptr = (char *) &dummy + 0x2c;
+	*age_ptr = (int *) 1000;
+	//printf("Address of age offset %p\n", age_ptr);
+	
+	//printf("---------------------\n");
+}
+
+int main(){
+	struct{
+		char *name;
+		int age;
+	} student = { .name="John",
+			.age=22};
+	bad(sizeof(student));
+	printf("student.name = %s\nstudent.age = %d\n", student.name, student.age);
+	return 0;
+}
+
