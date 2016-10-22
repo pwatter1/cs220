@@ -24,6 +24,7 @@ Node *my_reverse(Node *head){
 	if(temp->ptr == NULL){ return temp;}
 	/* CANNOT GET CORRECT WHEN LIST IS NULL ?? */
 	/* if list is NULL, return NULL */
+	if(head == NULL){ return NULL;}
 	if(temp->var == NULL){ return NULL;}
 	else{
 		while((temp->ptr) != NULL){	

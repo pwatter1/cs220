@@ -1,0 +1,9 @@
+CC=gcc
+
+all: main
+main: file_recognizer.c
+
+clean:
+	rm -f main Output.txt
+run: main
+	./main

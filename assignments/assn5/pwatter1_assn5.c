@@ -19,12 +19,12 @@ Node *my_reverse(Node *head){
 	Node *last_node = malloc(sizeof(Node));
 	Node *other_node;
 	Node *temp = head;
-
+	if(head == NULL){ return NULL;}
 	/* if linked list with single value, return list */
 	if(temp->ptr == NULL){ return temp;}
 	/* CANNOT GET CORRECT WHEN LIST IS NULL ?? */
 	/* if list is NULL, return NULL */
-	if(temp->var == NULL){ return NULL;}
+
 	else{
 		while((temp->ptr) != NULL){	
 			/* if end of original list */
