@@ -1,0 +1,66 @@
+Lab 13
+
+fork.c 
+1. The order may be inconsistent across runs because we can't know the order of 
+   the two without a function call to delay one process over the other. Otherwise, 
+   one may and will finish executing ahead the other.
+2.
+   When adding the sleep call in parent, the child executes first. Since they both 
+   start at the same time, 1 second is enough to allow child to finish first every
+   time.
+3.
+  In Child process - getPID  - 7847
+  In Parent process - getPID - 7846
+4.
+  In Child process - getPPID - 7846
+  In Parent process - getPPID - 6829
+5.
+  Child x = 2, Parent x = 0. Make a copy when you fork so calling x-- and x++
+  will be on x = 1 each time.
+
+
+multifork.c
+
+1.
+Line 1
+Line 2
+Line 4
+Line 2
+Line 4
+Line 3
+Line 1
+remote05:~/cs220/labs/lab13> Line 3
+Line 2
+Line 2
+Line 4
+Line 4
+Line 3
+Line 3
+
+  Line 1 printed twice because fork called above. Line 2 four times because two forks
+  are called above the print. Line 3 and 4 print four times each because the if 
+  statement checks for a new child process by the 3rd fork and creates another.
+
+2.
+8020 - 6829 - Line 2
+8021 - 8020 - Line 1
+8020 - 6829 - Line 4
+8021 - 8020 - Line 2
+8021 - 1 - Line 4
+remote05:~/cs220/labs/lab13> 8025 - 8021 - Line 3
+8022 - 1 - Line 2
+8024 - 1 - Line 2
+8023 - 1 - Line 3
+8022 - 1 - Line 4
+8026 - 1 - Line 3
+8024 - 1 - Line 4
+8027 - 1 - Line 3
+
+  Parent PID for some may be 1 if the original process was completed which means it 
+  killed. So they call init which sets it as 1 outright.
+
+exec.c
+
+  Child PID = 8299, parent PID = 8298
+  My pid is 8299, parent pid is 8298.
+
